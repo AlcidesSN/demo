@@ -60,11 +60,11 @@ public class Animal {
         this.idade = idade;
     }
 
-    public String isAgressivo() {
+    public String getDescricao() {
         return descricao;
     }
 
-    public void setAgressivo(String agressivo) {
-        this.descricao = agressivo;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }

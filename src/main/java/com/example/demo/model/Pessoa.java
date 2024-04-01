@@ -13,7 +13,7 @@ public abstract class Pessoa {
     @NotNull
     private String sobrenome;
     @NotNull
-    @Size(min = 11)
+    @Size(min = 11,max = 11)
     private String cpf;
     @Size(min = 9, max = 12)
     private String telefone;
