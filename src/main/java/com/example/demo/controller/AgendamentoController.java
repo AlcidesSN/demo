@@ -23,7 +23,14 @@ public class AgendamentoController {
     public List<Agendamento> listar(){return agendamentoService.listar();}
 
     @PostMapping
-    public Agendamento criar(@Valid @RequestBody Agendamento agendamento){return agendamentoService.criar(agendamento);}
+    public ResponseEntity<?> criar(@Valid @RequestBody Agendamento agendamento){
+        if(agendamentoService.criar(agendamento) == null){
+            String mensagem = "O Funcionario ou o Animal não exitem, por favor verifique e faça a requisição novamente";
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(mensagem);
+        } else {
+            return ResponseEntity.ok(agendamento);
+        }
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<?> atualizar(@Valid @RequestBody Agendamento agendamento,@PathVariable long id){
